@@ -1,5 +1,5 @@
 # fileSimpleTokenizer
-a simple module for tokenize text document
+a simple module for tokenize **large** text document
 ## readFile(parameter): only take one argument as like path object. type: string:
 example: readFile('root/folder/file.txt')
 ## tokenizer(target, source, caseSensetive = True)
