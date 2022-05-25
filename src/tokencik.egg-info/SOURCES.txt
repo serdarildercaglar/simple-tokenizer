@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/tokencik/__init__.py
+src/tokencik/tokenizer.py
+src/tokencik.egg-info/PKG-INFO
+src/tokencik.egg-info/SOURCES.txt
+src/tokencik.egg-info/dependency_links.txt
+src/tokencik.egg-info/top_level.txt
