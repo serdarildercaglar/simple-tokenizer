@@ -1,5 +1,9 @@
 from nltk.tokenize import word_tokenize
 import nltk
+from tqdm import tqdm
+  
+
+  
 nltk.download('punkt')
 
 def readFile(file_path):
@@ -10,7 +14,7 @@ def readFile(file_path):
     with open(file_path, mode ='r', encoding = 'utf8') as f:
         return f.readlines()
 
-def tokenizer(target_file_path, source_file_path, caseSensetive = True):
+def tokenizer(target_file_path, source_file_path, caseSensetive = True, singleLine = True, language = 'english'):
     """
     tokenizer use word_tokenize from nltk library. Only accept txt file for tokenizing.
 
@@ -29,12 +33,19 @@ def tokenizer(target_file_path, source_file_path, caseSensetive = True):
     with open(source_file_path, mode ='r', encoding = 'utf8') as f:
         text = f.readlines()
     
-    for i in text[:3]:
+    for i in tqdm (range(len(text)), desc="progressing..."):
         with open(target_file_path+'.txt','a',encoding = 'utf8') as f:
             
             if caseSensetive:
-                tokens = ' '.join(word_tokenize(i, language='english', preserve_line=False))
+                if singleLine:
+                    tokens = ' '.join(word_tokenize(i, language=language, preserve_line=False))
+                else:
+                    tokens = '\n'.join(word_tokenize(i, language=language, preserve_line=False))
+            
             else:
-                tokens = ' '.join(word_tokenize(i, language='english', preserve_line=False)).lower()
+                if singleLine:
+                    tokens = ' '.join(word_tokenize(i, language='english', preserve_line=False)).lower()
+                else:
+                    tokens = '\n'.join(word_tokenize(i, language='english', preserve_line=False)).lower()
             
             f.write(tokens+' ')        
