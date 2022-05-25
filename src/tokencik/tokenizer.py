@@ -34,7 +34,7 @@ def tokenizer(target_file_path, source_file_path, caseSensetive = True, singleLi
         text = f.readlines()
     
     for i in tqdm (range(len(text)), desc="progressing..."):
-        with open(target_file_path+','a',encoding = 'utf8') as f:
+        with open(target_file_path,'a',encoding = 'utf8') as f:
             
             if caseSensetive:
                 if singleLine:
