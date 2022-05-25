@@ -1,0 +1,10 @@
+Delete all files in the dist folder.
+
+Update the version number in the setup.py file.
+
+Re-create the wheels:
+
+python3 setup.py sdist bdist_wheel
+Re-upload the new files:
+
+twine upload dist/*
