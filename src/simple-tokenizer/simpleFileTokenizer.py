@@ -25,6 +25,10 @@ def tokenizer(target_file_path, source_file_path, caseSensetive = True, singleLi
     Any valid string path is acceptable.
 
     caseSensetive : bool, default True. for text case or uncased
+    
+    singleLine: bool, output of tokenizer single line or multi line
+    
+    language: string, can be used nltk supported all languages
 
 
     """
