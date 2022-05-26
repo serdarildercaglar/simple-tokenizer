@@ -14,7 +14,7 @@ def readFile(file_path):
     with open(file_path, mode ='r', encoding = 'utf8') as f:
         return f.readlines()
 
-def tokenizer(target_file_path, source_file_path, caseSensetive = True, singleLine = True, language = 'english'):
+def tokenizer2(target_file_path, source_file_path, caseSensetive = True, singleLine = True, language = 'english'):
     """
     tokenizer use word_tokenize from nltk library. Only accept txt file for tokenizing.
 
@@ -40,12 +40,13 @@ def tokenizer(target_file_path, source_file_path, caseSensetive = True, singleLi
                 if singleLine:
                     tokens = ' '.join(word_tokenize(text[i], language=language, preserve_line=False))
                 else:
-                    tokens = '\n'.join(word_tokenize(text[i], language=language, preserve_line=False))
-            
+                    data = ' '.join(word_tokenize(text[i], language=language, preserve_line=False)) 
+                    tokens = data + '\n'
             else:
                 if singleLine:
                     tokens = ' '.join(word_tokenize(text[i], language='english', preserve_line=False)).lower()
                 else:
-                    tokens = '\n'.join(word_tokenize(text[i], language='english', preserve_line=False)).lower()
+                    data = ' '.join(word_tokenize(text[i], language=language, preserve_line=False)) 
+                    tokens = data + '\n'
             
-            f.write(tokens+' ')        
+            f.write(tokens+' ')
